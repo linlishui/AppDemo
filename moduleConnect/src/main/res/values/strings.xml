@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Socket-->
+    <string name="socket_client_bind">"Bind"</string>
+    <string name="socket_client_unbind">"Unbind"</string>
+
+    <!--BLE-->
+    <string name="bt_not_enabled">"Please enable Bluetooth in order to scan for devices"</string>
+    <string name="bt_enable_prompt">"Enable Bluetooth"</string>
+    <string name="bt_no_connected_device_message">Not connected to a device</string>
+    <string name="bt_connect_device_prompt">Connect with nearby devices</string>
+    <string name="bt_no_devices_found">No BLE devices found</string>
+    <string name="ble_chatting_with_device">Chatting with %1$s</string>
+
+</resources>

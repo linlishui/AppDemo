@@ -1,0 +1,9 @@
+<resources>
+    <!--WanAndroid-->
+    <string name="wan_tree_title">"Tree"</string>
+    <string name="wan_project_title">"Project"</string>
+    <string name="wan_navigation_title">"Navigation"</string>
+
+    <string name="wan_search_title">"Search"</string>
+
+</resources>

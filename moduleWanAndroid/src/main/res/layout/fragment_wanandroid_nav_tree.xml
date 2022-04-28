@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/wan_swipe_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wan_nav_tree_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="true"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        android:scrollbars="none"
+        app:fastScrollEnabled="true"
+        app:fastScrollHorizontalThumbDrawable="@drawable/rv_scrollbar_thumb_state"
+        app:fastScrollHorizontalTrackDrawable="@drawable/rv_scrollbar_track"
+        app:fastScrollVerticalThumbDrawable="@drawable/rv_scrollbar_thumb_state"
+        app:fastScrollVerticalTrackDrawable="@drawable/rv_scrollbar_track" />
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lishui.module.profile.view.SelfHeaderLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="lishui.module.profile.ui.SelfTabFragment">
+
+    <Space
+        android:id="@+id/self_header_cover_space"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/holo_red_light"
+        android:gravity="center"
+        android:text="头部内容"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/self_header_cover_space" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/header_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="self_header_cover_space" />
+
+</lishui.module.profile.view.SelfHeaderLayout>

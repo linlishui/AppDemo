@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_entry_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+<!--
+<androidx.appcompat.widget.Toolbar
+android:id="@+id/app_tool_bar"
+android:layout_width="match_parent"
+android:layout_height="?attr/actionBarSize"
+android:background="@color/demo_bg_basic"
+android:elevation="4dp"
+android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+app:menu="@menu/app_menu"
+app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->

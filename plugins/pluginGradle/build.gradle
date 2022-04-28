@@ -1,0 +1,46 @@
+plugins {
+    id 'kotlin'
+    //id 'groovy'  // 插件可用Java,Kotlin或Groovy等JVM语言编写
+    id 'maven-publish'
+}
+
+dependencies {
+
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation deps.android_gradle_plugin
+
+    // ASM，一个字节码操作框架
+    implementation 'org.ow2.asm:asm:9.1'
+    implementation 'org.ow2.asm:asm-commons:9.1'
+}
+
+/**
+ * 自定义插件格式：[包名]:[插件名]:[版本号] ->  [groupId]:[artifactId]:[version]
+ *
+ * 引用插件包格式：在工程根build.gradle文件，buildscript下的dependencies作用域，声明 classpath "lishui.android.tools:gradle-plugin:1.0.0"
+ *
+ * 使用插件：以此模块为例，文件pluginGradle/src/main/resources/META-INF/gradle-plugins/lishui-android.properties前缀`lishui-android`为使用的插件名称，该文件内定义了插件具体实现类。
+ *         在对应模块下`build.gradle`加入`apply plugin: 'lishui-android'`语句，此时调用了此插件
+ *
+ * 编译并上传到本地的命令：./gradlew :plugins:pluginGradle:publish
+ *
+ */
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId "lishui.android.tools"
+            artifactId "gradle-plugin"
+            version "1.0.0"
+        }
+    }
+
+    repositories {
+        maven {
+            def releasesRepoUrl = layout.buildDirectory.dir(rootProject.rootDir.absolutePath + '/local_repos')
+            def snapshotsRepoUrl = layout.buildDirectory.dir(rootProject.rootDir.absolutePath + '/local_repos')
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}

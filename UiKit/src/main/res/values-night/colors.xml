@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="uikit_accent_primary">#5786FF</color>
+    <color name="uikit_accent_primary_disable">#405786FF</color>
+    <color name="uikit_accent_primary_light">#72ACFF</color>
+    <color name="uikit_accent_primary_pressed">#325CD9</color>
+    <color name="uikit_bg_banner">#335786FF</color>
+    <color name="uikit_bg_basic">#141414</color>
+    <color name="uikit_bg_button_secondary">#145786FF</color>
+    <color name="uikit_bg_button_secondary_pressed">#265786FF</color>
+    <color name="uikit_bg_layout">#080808</color>
+    <color name="uikit_bg_toast">#E64B4B4E</color>
+    <color name="uikit_correct_normal">#4ED353</color>
+    <color name="uikit_divider">#0DFFFFFF</color>
+    <color name="uikit_error">#EF5160</color>
+    <color name="uikit_mask">#99000000</color>
+    <color name="uikit_text_disabled">#40FFFFFF</color>
+    <color name="uikit_text_primary">#DEFFFFFF</color>
+    <color name="uikit_text_secondary">#80FFFFFF</color>
+    <color name="uikit_warning_normal">#FFFF8A42</color>
+</resources>

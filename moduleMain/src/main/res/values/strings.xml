@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="item_name_home">"Home"</string>
+    <string name="item_name_wanandroid">"WanAndroid"</string>
+    <string name="item_name_compose">"Compose"</string>
+    <string name="item_name_me">"Me"</string>
+
+    <string name="shortcut_search_short_label">"Search"</string>
+    <string name="shortcut_search_long_label">"AppDemo search"</string>
+    <string name="shortcut_search_disabled_msg">"Search disabled"</string>
+
+</resources>

@@ -1,0 +1,26 @@
+apply plugin: 'com.android.library'
+apply from: "${rootDir}/config/kotlin_android.gradle"
+apply plugin: 'kotlin-kapt'
+
+android {
+    defaultConfig {
+        // Write out the current schema of Room
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$rootProject.buildDir/schemas".toString()]
+            }
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':serviceCore')
+
+    implementation deps.lishui_base
+
+    // 暂时注释掉 room 的kapt
+    //kapt deps.room_compiler
+    implementation deps.room
+    implementation deps.datastore_preferences
+}

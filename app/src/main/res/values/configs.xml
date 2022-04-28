@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="initializer_components" translatable="false">
+        <item >"lishui.service.misc.MiscInitializer"</item>
+        <item >"lishui.service.web.WebInitializer"</item>
+        <item >"lishui.module.flutter.FlutterInitializer"</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'
+apply from: "${rootDir}/config/kotlin_android.gradle"
+
+dependencies {
+
+    api deps.gson
+
+    implementation deps.lishui_base
+    implementation deps.kotlinx_coroutines_core
+
+    implementation deps.okhttp3
+    implementation deps.okhttp3_logging
+}

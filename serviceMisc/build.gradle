@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'
+apply from: "${rootDir}/config/kotlin_android.gradle"
+
+dependencies {
+
+    implementation project(path: ':serviceCore')
+
+    implementation deps.lishui_base
+
+}

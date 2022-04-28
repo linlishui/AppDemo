@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main_graph"
+    app:startDestination="@id/fragment_home_tab">
+
+    <fragment
+        android:id="@+id/fragment_home_tab"
+        android:name="lishui.module.main.ui.fragment.HomeTabFragment"
+        android:label="@string/item_name_home">
+
+        <!--<action
+            android:id="@+id/action_home_to_wan_tab"
+            app:destination="@id/fragment_wan_tab" />
+        <action
+            android:id="@+id/action_home_to_compose_tab"
+            app:destination="@id/fragment_compose_tab" />-->
+    </fragment>
+
+    <!--  WanAndroid 模块的 WanTabFragment 页面 -->
+    <fragment
+        android:id="@+id/fragment_wan_tab"
+        android:name="lishui.module.wanandroid.ui.WanTabFragment"
+        android:label="@string/item_name_wanandroid" />
+
+    <!--  Compose 模块的 ComposeTabFragment 页面 -->
+    <fragment
+        android:id="@+id/fragment_compose_tab"
+        android:name="lishui.module.compose.ui.ComposeTabFragment"
+        android:label="@string/item_name_compose" />
+
+    <!--  Profile 模块的 MeTabFragment 页面 -->
+    <fragment
+        android:id="@+id/fragment_compose_me"
+        android:name="lishui.module.profile.ui.SelfTabFragment"
+        android:label="@string/item_name_me" />
+
+</navigation>

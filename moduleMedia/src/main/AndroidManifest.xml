@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="lishui.module.media">
+
+    <application>
+        <activity
+            android:name="lishui.module.media.ui.MediaEntryActivity"
+            android:exported="true" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,127 @@
+apply plugin: 'com.android.application'
+apply from: "${rootDir}/config/kotlin_android.gradle"
+//apply plugin: 'lishui-android'
+
+android {
+
+    defaultConfig {
+        applicationId "lishui.demo"
+        versionCode Integer.valueOf("22010401")
+        versionName "v1.0.0.220104.1"
+
+        //testInstrumentationRunner "lishui.demo.CustomTestRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            // Filter for architectures supported by Flutter.
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64'
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../keystore/platform.jks")
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+    }
+
+    android.buildFeatures {
+        //viewBinding = true
+    }
+
+    // Disable release builds for now
+    android.variantFilter { variant ->
+        if (DEV_DEBUG.equalsIgnoreCase("true")) {
+            if (variant.buildType.name.endsWith('release')) {
+                variant.setIgnore(true)
+            }
+        }
+    }
+
+    sourceSets {
+        debug {
+            java.srcDirs = ['src/debug/java/']
+            res.srcDirs = ['src/debug/res']
+            manifest.srcFile "src/debug/AndroidManifest.xml"
+            jni.srcDirs = ['src/debug/jni']
+            jniLibs.srcDirs = ['src/debug/jniLibs']
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            if (variant.buildType.name == "release") {
+                def buildDateStr = new Date().format('yyyyMMdd')
+                outputFileName = "${rootProject.name}_${defaultConfig.versionName}_${buildDateStr}.apk"
+            } else {
+                outputFileName = "${rootProject.name}_${variant.buildType.name}_${defaultConfig.versionName}.apk"
+            }
+        }
+    }
+}
+
+/*methodMonitor {
+    timeThreadHold = 100
+    targetPackage = "lishui.demo.app"
+}*/
+
+/*configurations {
+    phoneImplementation
+    wearImplementation
+
+    phoneCompileOnly
+    wearCompileOnly
+}*/
+
+dependencies {
+
+    //implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+
+    implementation project(path: ':moduleMain')
+    implementation project(path: ':moduleMedia')
+    implementation project(path: ':moduleGitee')
+    implementation project(path: ':moduleProfile')
+    implementation project(path: ':moduleConnect')
+    implementation project(path: ':moduleCompose')
+    //implementation project(path: ':moduleFlutter')
+    implementation project(path: ':moduleMyServer')
+    implementation project(path: ':moduleWanAndroid')
+
+    // 应用内全局浏览器
+    implementation project(path: ':serviceWeb')
+    // 应用内核心服务基础
+    implementation project(path: ':serviceCore')
+
+    // Jetpack
+    implementation deps.app_startup
+
+    // Custom
+    implementation deps.lishui_base
+    implementation deps.lishui_router
+
+    /* Debug tools */
+    // debugImplementation deps.glance
+    // debugImplementation deps.leakcanary
+
+    // Test
+    testImplementation deps.junit
+    androidTestImplementation deps.androidx_junit
+    androidTestImplementation deps.espresso_core
+    androidTestImplementation deps.kotlinx_coroutines_core
+
+}

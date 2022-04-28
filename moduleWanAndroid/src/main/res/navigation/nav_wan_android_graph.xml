@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_wan_android"
+    app:startDestination="@id/wan_search_fragment">
+
+<!--
+WanSearchFragment
+WanTabFragment
+WanTestFragment
+-->
+    <fragment
+        android:id="@+id/wan_search_fragment"
+        android:name="lishui.module.wanandroid.ui.WanSearchFragment"
+        android:label="@string/wan_search_title"
+        tools:layout="@layout/fragment_wan_search_layout" />
+
+</navigation>

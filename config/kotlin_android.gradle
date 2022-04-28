@@ -1,0 +1,17 @@
+apply plugin: 'kotlin-android'
+apply from: "${rootDir}/config/common_build.gradle"
+
+android {
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+plugins.withId("kotlin-kapt") {
+    kapt.useBuildCache = true
+}
+
+dependencies {
+    implementation deps.kotlin_stdlib
+}

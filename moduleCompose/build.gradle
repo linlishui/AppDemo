@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+apply from: "${rootDir}/config/kotlin_android.gradle"
+
+def compose_version = "1.1.1"
+
+android {
+
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+
+    composeOptions {
+        // Compose version
+        kotlinCompilerExtensionVersion "$compose_version"
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':serviceCore')
+
+    implementation deps.core_ktx
+    implementation deps.lishui_base
+    implementation deps.lishui_router
+
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.activity:activity-compose:1.4.0'
+
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+
+}

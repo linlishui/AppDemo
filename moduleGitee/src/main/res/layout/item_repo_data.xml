@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="24dp"
+    android:background="@drawable/gitee_common_item_bg"
+    android:foreground="?android:selectableItemBackground"
+    android:padding="12dp"
+    android:paddingStart="8dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="8dp">
+
+    <TextView
+        android:id="@+id/repo_path_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="repo_path_name"
+        android:textColor="@color/uikit_text_primary"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toStartOf="@id/repo_data_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/repo_data_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="repo_data_size"
+        android:textColor="@color/uikit_text_secondary"
+        android:textSize="12dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/repo_path_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

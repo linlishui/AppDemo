@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lishui.module.main.view.TextShadowView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_entry_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginEnd="24dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:gravity="center"
+    android:padding="12dp"
+    android:textColor="@color/uikit_text_primary"
+    android:textSize="16dp" />
+
+<!--    android:background="@color/demo_bg_layout"  -->

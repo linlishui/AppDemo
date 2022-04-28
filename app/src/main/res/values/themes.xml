@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="UiKitCompatTheme.App" parent="UiKitCompatTheme">
+        <item name="android:statusBarColor">@color/demo_bar_color</item>
+        <item name="android:navigationBarColor">@color/demo_bar_color</item>
+        <item name="android:windowLightStatusBar">@bool/demo_window_light_bar</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="p">
+            @bool/demo_window_light_bar
+        </item>
+        <!--        <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>-->
+        <!--        <item name="android:isLightTheme" tools:targetApi="q">true</item>-->
+    </style>
+
+</resources>

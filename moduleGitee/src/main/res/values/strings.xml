@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Gitee-->
+    <string name="gitee_login_username">"User: "</string>
+    <string name="gitee_login_password">"Password: "</string>
+    <string name="gitee_login_text">"Login"</string>
+
+</resources>

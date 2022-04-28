@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="lishui.module.flutter">
+
+    <application>
+
+        <activity android:name="lishui.module.flutter.ui.FlutterEntryActivity" />
+
+        <activity
+            android:name="lishui.module.flutter.ui.FlutterHostActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize" />
+
+    </application>
+</manifest>

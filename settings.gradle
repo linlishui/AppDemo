@@ -1,0 +1,26 @@
+rootProject.name = "AppDemo"
+
+include ':app'
+
+include ':moduleMain'
+include ':moduleMedia'
+include ':moduleGitee'
+include ':moduleProfile'
+include ':moduleConnect'
+include ':moduleCompose'
+//include ':moduleFlutter'
+include ':moduleMyServer'
+include ':moduleWanAndroid'
+
+include ':serviceCore'
+include ':serviceNet'
+include ':serviceWeb'
+include ':serviceData'
+include ':serviceMisc'
+include ':serviceWork'
+include ':serviceImager'
+
+include ':UiKit'
+
+/* 自定义gradle插件 */
+//include ':plugins:pluginGradle'

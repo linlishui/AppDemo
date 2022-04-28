@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'
+apply from: "${rootDir}/config/kotlin_android.gradle"
+
+dependencies {
+
+    implementation project(path: ':serviceCore')
+
+    implementation deps.lishui_base
+    implementation deps.lishui_router
+
+    debugImplementation 'lishui.demo.flutter:flutter_debug:1.0'
+    releaseImplementation 'lishui.demo.flutter:flutter_release:1.0'
+}

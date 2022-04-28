@@ -1,0 +1,17 @@
+apply plugin: 'com.android.library'
+apply from: "${rootDir}/config/kotlin_android.gradle"
+
+dependencies {
+
+    implementation project(path: ':UiKit')
+    implementation project(path: ':serviceNet')
+    implementation project(path: ':serviceCore')
+
+    implementation deps.appcompat
+    implementation deps.recyclerview
+    implementation deps.constraintlayout
+    implementation deps.lifecycle_viewmodel_ktx
+
+    implementation deps.lishui_base
+    implementation deps.lishui_router
+}

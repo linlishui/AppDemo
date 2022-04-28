@@ -1,0 +1,17 @@
+apply plugin: 'com.android.library'
+apply from: "${rootDir}/config/kotlin_android.gradle"
+
+dependencies {
+
+    implementation project(path: ':serviceCore')
+    implementation project(path: ':serviceImager')
+
+    implementation deps.lishui_base
+    implementation deps.lishui_router
+    implementation deps.lishui_player
+
+    implementation deps.fragment
+    implementation deps.appcompat
+    implementation deps.google_material
+    implementation deps.lifecycle_viewmodel_ktx
+}

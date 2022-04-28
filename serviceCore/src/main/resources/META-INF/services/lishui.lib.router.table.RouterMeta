@@ -1,0 +1,10 @@
+# 放入实现了`lishui.lib.router.table.RouterMeta`接口的全路径类
+
+lishui.service.web.WebRouterMeta
+lishui.module.media.MediaRouteMeta
+lishui.module.gitee.GiteeRouterMeta
+lishui.module.wanandroid.WanRouterMeta
+lishui.module.compose.ComposeRouterMeta
+lishui.module.flutter.FlutterRouterMeta
+lishui.module.myserver.MyServerRouterMeta
+lishui.module.connect.ConnectRouterMeta

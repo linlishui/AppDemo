@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_fragment_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ChatEntryFragment">
+
+    <TextView
+        android:id="@+id/chat_server_page"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/uikit_bg_layout"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Chat server"
+        android:textColor="@color/uikit_text_primary"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/chat_client_page"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/uikit_bg_layout"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Chat client"
+        android:textColor="@color/uikit_text_primary"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chat_server_page" />
+
+    <TextView
+        android:id="@+id/bluetooth_pair_page"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/uikit_bg_layout"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Bluetooth chat"
+        android:textColor="@color/uikit_text_primary"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chat_client_page" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

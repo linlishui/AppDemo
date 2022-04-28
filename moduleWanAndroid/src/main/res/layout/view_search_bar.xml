@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/uikit_bg_layout"
+    tools:gravity="center_vertical"
+    tools:layout_height="wrap_content"
+    tools:layout_widht="match_parent"
+    tools:orientation="horizontal"
+    tools:padding="@dimen/search_bar_content_padding"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <FrameLayout
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/search_bar_bg"
+        android:paddingTop="@dimen/search_bar_content_padding"
+        android:paddingBottom="@dimen/search_bar_content_padding">
+
+        <View
+            android:id="@+id/focus"
+            android:layout_width="1px"
+            android:layout_height="1px"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <requestFocus />
+        </View>
+
+        <ImageView
+            android:layout_width="@dimen/search_bar_icon_side"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_baseline_search_24" />
+
+        <ImageView
+            android:id="@+id/search_clear"
+            android:layout_width="@dimen/search_bar_icon_side"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_baseline_close_24"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <lishui.module.wanandroid.view.TextField
+            android:id="@+id/search_text_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/search_bar_icon_side"
+            android:layout_marginEnd="@dimen/search_bar_icon_side"
+            android:autofillHints="@null"
+            android:background="@null"
+            android:hint="@android:string/search_go"
+            android:imeOptions="flagNoExtractUi|actionSearch"
+            android:inputType="textVisiblePassword"
+            android:lines="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/uikit_text_primary"
+            tools:ignore="UnusedAttribute" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/search_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/search_bar_content_padding"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/search_bar_content_padding"
+        android:text="@android:string/cancel"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/uikit_accent_primary"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</merge>
