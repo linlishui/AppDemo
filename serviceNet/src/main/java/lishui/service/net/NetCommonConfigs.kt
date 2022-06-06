@@ -7,7 +7,7 @@ import lishui.service.net.result.NetResult
 object NetCommonConfigs {
 
     const val NET_TAG = "NetCommonConfigs"
-    const val NET_DEBUG = true
+    const val NET_DEBUG = false
 
     // schema
     const val SCHEMA_HTTP = "http"

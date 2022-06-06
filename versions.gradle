@@ -33,6 +33,7 @@ versions.coordinatorlayout = '1.2.0'
 
 // Common
 versions.google_material = '1.4.0'
+versions.google_material3 = '1.5.0'
 versions.google_flexbox = '3.0.0'
 
 // Jetpack
@@ -100,6 +101,7 @@ deps.coordinatorlayout = "androidx.coordinatorlayout:coordinatorlayout:$versions
 // Common impl
 deps.kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin_version"
 deps.google_material = "com.google.android.material:material:$versions.google_material"
+deps.google_material3 = "com.google.android.material:material:$versions.google_material3"
 deps.google_flexbox = "com.google.android.flexbox:flexbox:$versions.google_flexbox"
 
 // Jetpack impl

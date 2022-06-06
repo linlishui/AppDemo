@@ -24,3 +24,4 @@ include ':UiKit'
 
 /* 自定义gradle插件 */
 //include ':plugins:pluginGradle'
+//includeBuild 'plugins/pluginVersion'

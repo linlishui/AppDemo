@@ -13,9 +13,26 @@ buildscript {
     }
 }
 
+//plugins {
+//    id 'lishui.android.version' apply false
+//}
+
 allprojects {
     addRepos(repositories, project)
 }
+
+
+subprojects {
+//    switch (name) {
+//        case "app":
+//            apply plugin: 'com.android.application'
+//            break
+//        default:
+//            apply plugin: 'com.android.library'
+//            break
+//    }
+}
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

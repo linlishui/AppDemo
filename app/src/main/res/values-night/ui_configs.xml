@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="demo_window_light_bar" type="bool">false</item>
+    <item name="system_bar_light_mode" type="bool">false</item>
 </resources>

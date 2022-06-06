@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="UiKitCompatTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="UiKit.Theme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:colorError">@color/uikit_error</item>
         <item name="android:colorAccent">@color/uikit_accent_primary</item>
         <item name="android:textColorPrimary">@color/uikit_text_primary</item>

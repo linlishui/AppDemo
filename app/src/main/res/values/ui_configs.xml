@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <item name="demo_bar_color" type="color">@color/uikit_bg_basic</item>
-    <item name="demo_window_light_bar" type="bool">true</item>
+    <item name="system_bar_color" type="color">@color/uikit_bg_basic</item>
+    <item name="system_bar_light_mode" type="bool">true</item>
 
 </resources>
