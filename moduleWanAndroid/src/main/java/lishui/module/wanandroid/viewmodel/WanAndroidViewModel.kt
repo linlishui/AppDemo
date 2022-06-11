@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import lishui.module.wanandroid.ui.recyclerview.entity.WanNavTreeItem
+import lishui.android.ui.widget.list.RecyclerData
 import lishui.module.wanandroid.net.Article
 import lishui.module.wanandroid.net.NavData
 import lishui.module.wanandroid.net.TreeData
@@ -20,6 +20,7 @@ import lishui.module.wanandroid.net.task.WanNavListTask
 import lishui.module.wanandroid.net.task.WanTreeListTask
 import lishui.module.wanandroid.source.NavPageDataSource
 import lishui.module.wanandroid.source.SearchPageDataSource
+import lishui.module.wanandroid.ui.recyclerview.entity.WanNavTreeItem
 import lishui.module.wanandroid.ui.util.WanNavTreeViewType
 import lishui.service.net.NetClient
 
@@ -28,11 +29,11 @@ import lishui.service.net.NetClient
  */
 class WanAndroidViewModel : ViewModel() {
 
-    private val _treeDataLiveData = MutableLiveData<List<WanNavTreeItem>>()
-    val treeDataLiveData = _treeDataLiveData as LiveData<List<WanNavTreeItem>>
+    private val _treeDataLiveData = MutableLiveData<List<RecyclerData>>()
+    val treeDataLiveData = _treeDataLiveData as LiveData<List<RecyclerData>>
 
-    private val _navDataLiveData = MutableLiveData<List<WanNavTreeItem>>()
-    val navDataLiveData = _navDataLiveData as LiveData<List<WanNavTreeItem>>
+    private val _navDataLiveData = MutableLiveData<List<RecyclerData>>()
+    val navDataLiveData = _navDataLiveData as LiveData<List<RecyclerData>>
 
     fun loadNavTreeData(isNavType: Boolean = true) {
         viewModelScope.launch {
@@ -48,30 +49,20 @@ class WanAndroidViewModel : ViewModel() {
         try {
             val response: List<TreeData> = NetClient.execute(WanTreeListTask()).wanTreeList
             var parentId = -1
-            val wanTreeDataList = arrayListOf<WanNavTreeItem>()
+            val recyclerDataList = arrayListOf<RecyclerData>()
             response.forEach {
                 if (parentId != it.id) {
                     parentId = it.id
-                    wanTreeDataList.add(
-                        WanNavTreeItem(
-                            id = it.id,
-                            name = it.name
-                        ).also { item ->
-                            item.viewType = WanNavTreeViewType.VIEW_TYPE_PARENT_NAV_TREE
-                        }
-                    )
+                    val wanNavTreeItem = WanNavTreeItem(it.id, it.name)
+                    recyclerDataList.add(RecyclerData(wanNavTreeItem, WanNavTreeViewType.VIEW_TYPE_PARENT_NAV_TREE))
                 }
 
                 it.children?.forEach { subTreeData ->
-                    wanTreeDataList.add(
-                        WanNavTreeItem(
-                            id = subTreeData.id,
-                            name = subTreeData.name
-                        )
-                    )
+                    val wanNavTreeItem = WanNavTreeItem(subTreeData.id, subTreeData.name)
+                    recyclerDataList.add(RecyclerData(wanNavTreeItem, WanNavTreeViewType.VIEW_TYPE_CHILDREN_NAV_TREE))
                 }
             }
-            _treeDataLiveData.postValue(wanTreeDataList)
+            _treeDataLiveData.postValue(recyclerDataList)
         } catch (e: Exception) {
             // no-op
         }
@@ -80,28 +71,16 @@ class WanAndroidViewModel : ViewModel() {
     private suspend fun loadNavData() = withContext(Dispatchers.Default) {
         try {
             val response: List<NavData> = NetClient.execute(WanNavListTask()).wanNavList
-            val wanNavDataList = arrayListOf<WanNavTreeItem>()
+            val recyclerDataList = arrayListOf<RecyclerData>()
             response.forEach {
-                wanNavDataList.add(
-                    WanNavTreeItem(
-                        id = it.cid,
-                        name = it.name,
-                        link = ""
-                    ).also { item ->
-                        item.viewType = WanNavTreeViewType.VIEW_TYPE_PARENT_NAV_TREE
-                    }
-                )
+                val parentNavTreeItem = WanNavTreeItem(it.cid, it.name)
+                recyclerDataList.add(RecyclerData(parentNavTreeItem, WanNavTreeViewType.VIEW_TYPE_PARENT_NAV_TREE))
                 it.articles?.forEach { article ->
-                    wanNavDataList.add(
-                        WanNavTreeItem(
-                            id = article.id,
-                            name = article.title,
-                            link = article.link
-                        )
-                    )
+                    val childNavTreeItem = WanNavTreeItem(article.id, article.title, article.link)
+                    recyclerDataList.add(RecyclerData(childNavTreeItem, WanNavTreeViewType.VIEW_TYPE_CHILDREN_NAV_TREE))
                 }
             }
-            _navDataLiveData.postValue(wanNavDataList)
+            _navDataLiveData.postValue(recyclerDataList)
         } catch (e: Exception) {
             // no-op
         }

@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.flexbox.FlexboxLayoutManager
+import lishui.android.ui.widget.list.RecyclerData
+import lishui.android.ui.widget.list.RecyclerEventMediator
 import lishui.module.wanandroid.R
-import lishui.module.wanandroid.ui.recyclerview.entity.WanNavTreeItem
 import lishui.module.wanandroid.ui.recyclerview.adapter.WanNavTreeAdapter
 
 /**
@@ -16,13 +17,9 @@ import lishui.module.wanandroid.ui.recyclerview.adapter.WanNavTreeAdapter
  *  time   : 2021/8/17
  *  desc   : WanAndroid中导航与体系的父fragment
  */
-abstract class WanNavTreeFragment : WanBackFragment(), View.OnClickListener {
+abstract class WanNavTreeFragment : WanBackFragment() {
 
-    private val mNavTreeAdapter: WanNavTreeAdapter by lazy {
-        WanNavTreeAdapter().also {
-            it.itemClickListener = this
-        }
-    }
+    private val mNavTreeAdapter: WanNavTreeAdapter = WanNavTreeAdapter()
 
     private lateinit var mSwipeRefreshLayout: SwipeRefreshLayout
 
@@ -55,20 +52,22 @@ abstract class WanNavTreeFragment : WanBackFragment(), View.OnClickListener {
             it.layoutManager = layoutManager
         }
 
+        mNavTreeAdapter.setItemEventMediator(object : RecyclerEventMediator() {
+            override fun onClick(v: View?) {
+                val currentClickTime = System.currentTimeMillis()
+                if (currentClickTime - mLastClickViewTime > 500) {
+                    mLastClickViewTime = currentClickTime
+                    if (v != null) {
+                        onClickView(v)
+                    }
+                }
+            }
+        })
+
         subscribeViewModel()
     }
 
-    override fun onClick(v: View?) {
-        val currentClickTime = System.currentTimeMillis()
-        if (currentClickTime - mLastClickViewTime > 500) {
-            mLastClickViewTime = currentClickTime
-            if (v != null) {
-                onClickView(v)
-            }
-        }
-    }
-
-    fun updateItemList(itemList: List<WanNavTreeItem>) {
+    fun updateItemList(itemList: List<RecyclerData>?) {
         mSwipeRefreshLayout.isRefreshing = false
         mNavTreeAdapter.submitList(itemList)
     }

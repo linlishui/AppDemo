@@ -1,6 +1,5 @@
 package lishui.android.ui.widget.list
 
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.*
 import java.util.*
@@ -11,33 +10,32 @@ import java.util.*
  *  desc   : `RecyclerView.Adapter`的基础实现类，定义通用的Adapter行为。
  *           当 diffCallback 不为空时，此时会进行异步数据项比对和同步刷新。
  */
-open class RecyclerAdapter<DATA> @JvmOverloads constructor(
-    private var viewHolderFactory: AbstractViewHolderFactory<DATA>? = null,
-    diffCallback: DiffUtil.ItemCallback<DATA>? = null,
-) : RecyclerView.Adapter<RecyclerViewHolder<DATA>>() {
+open class RecyclerAdapter @JvmOverloads constructor(
+    private var viewHolderFactory: AbstractViewHolderFactory? = null,
+    diffCallback: DiffUtil.ItemCallback<RecyclerData>? = null,
+) : RecyclerView.Adapter<RecyclerViewHolder>() {
 
-    private val sourceDataList: ArrayList<DATA> = ArrayList()
+    private val sourceDataList: ArrayList<RecyclerData> = ArrayList()
 
-    private val mDiffer: AsyncListDiffer<DATA>? by lazy {
+    private val mDiffer: AsyncListDiffer<RecyclerData>? by lazy {
         if (diffCallback != null) {
             AsyncListDiffer(
                 AdapterListUpdateCallback(this),
-                AsyncDifferConfig.Builder<DATA>(diffCallback).build()
+                AsyncDifferConfig.Builder<RecyclerData>(diffCallback).build()
             )
         } else null
     }
 
-    var itemClickListener: View.OnClickListener? = null
-    var itemLongClickListener: View.OnLongClickListener? = null
+    private var eventMediator: RecyclerEventMediator? = null
 
     /**
      * @param factory 传入新的ViewHolder工厂实现类
      */
-    fun setViewHolderFactory(factory: AbstractViewHolderFactory<DATA>) {
+    fun setViewHolderFactory(factory: AbstractViewHolderFactory) {
         this.viewHolderFactory = factory
     }
 
-    fun submitList(newDataList: List<DATA>?) {
+    fun submitList(newDataList: List<RecyclerData>?) {
         sourceDataList.clear()
         if (newDataList != null) {
             sourceDataList.addAll(newDataList)
@@ -45,32 +43,39 @@ open class RecyclerAdapter<DATA> @JvmOverloads constructor(
         mDiffer?.submitList(sourceDataList) ?: notifyDataSetChanged()
     }
 
-    private fun getCurrentList(): List<DATA> {
+    fun getDataList(): List<RecyclerData> {
         return mDiffer?.currentList ?: sourceDataList
     }
 
+    fun setItemEventMediator(eventMediator: RecyclerEventMediator?) {
+        this.eventMediator = eventMediator
+    }
+
+    private fun getItemData(position: Int): RecyclerData? {
+        if (position in 0 until itemCount) {
+            return getDataList()[position]
+        }
+        return null
+    }
+
     /* 定义一系列 `RecyclerView.Adapter` 中默认实现的方法 */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder<DATA> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
         val recyclerViewHolder = viewHolderFactory?.createViewHolder(parent, viewType)
             ?: throw IllegalStateException("can't find AbstractViewHolderFactory implementation in onCreateViewHolder!")
         recyclerViewHolder.initViewHolder()
         return recyclerViewHolder
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewHolder<DATA>, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         onBindViewHolder(holder, position, Collections.emptyList())
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewHolder<DATA>, position: Int, payloads: MutableList<Any>) {
-        holder.setItemClickListener(itemClickListener)
-        holder.setItemLongClickListener(itemLongClickListener)
-        holder.bindViewHolder(sourceDataList[position], payloads)
+    override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int, payloads: MutableList<Any>) {
+        holder.itemEventController.setupClickMediator(holder.itemView, eventMediator) // 设置点击或长按事件处理
+        holder.bindViewHolder(getItemData(position), payloads)
     }
 
-    override fun getItemCount(): Int = getCurrentList().size
+    override fun getItemCount(): Int = getDataList().size
 
-    override fun getItemViewType(position: Int): Int {
-        return viewHolderFactory?.getItemViewType(sourceDataList[position], position)
-            ?: throw IllegalStateException("can't find AbstractViewHolderFactory implementation in getItemViewType!")
-    }
+    override fun getItemViewType(position: Int): Int = getItemData(position)?.viewType ?: RecyclerView.INVALID_TYPE
 }

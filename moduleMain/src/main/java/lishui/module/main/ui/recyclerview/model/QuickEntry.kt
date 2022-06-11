@@ -1,10 +1,8 @@
 package lishui.module.main.ui.recyclerview.model
 
-import lishui.android.ui.widget.list.RecyclerData
-
-open class QuickEntry(
+sealed class QuickEntry(
     val title: String
-) : RecyclerData()
+)
 
 class ChatQuickEntry : QuickEntry("Chat")
 class MediaQuickEntry : QuickEntry("Media")
