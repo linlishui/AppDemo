@@ -8,7 +8,7 @@ dependencies {
     implementation project(path: ':serviceNet')
     implementation project(path: ':serviceData')
 
-    implementation deps.lishui_base
+    implementation deps.lishui_android_base
     implementation deps.lishui_router
 
     implementation deps.paging

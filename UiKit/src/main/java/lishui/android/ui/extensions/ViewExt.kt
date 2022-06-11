@@ -3,8 +3,8 @@ package lishui.android.ui.extensions
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
-import android.view.ViewTreeObserver
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 
 var View.hidden: Boolean
     get() = visibility == GONE
@@ -12,24 +12,6 @@ var View.hidden: Boolean
         visibility = if (value) GONE else VISIBLE
     }
 
-fun View.onPreDraw(action: () -> Unit) {
-    viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener {
-        override fun onPreDraw(): Boolean {
-            val vto = viewTreeObserver
-            if (vto.isAlive) {
-                vto.removeOnPreDrawListener(this)
-            }
-            action()
-            // do not block drawing
-            return true
-        }
-    })
-}
+fun EditText?.showKeyboard() = this?.context?.getSystemService(InputMethodManager::class.java)?.showSoftInput(this, 0)
 
-var View.active: Boolean
-    get() = isActivated
-    set(newValue) {
-        isActivated = newValue
-
-        (this as? ViewGroup)?.children?.forEach { it.active = newValue }
-    }
+fun EditText?.hideKeyboard() = this?.context?.getSystemService(InputMethodManager::class.java)?.hideSoftInputFromWindow(this.windowToken, 0)

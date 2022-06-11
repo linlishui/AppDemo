@@ -1,5 +1,6 @@
 package lishui.module.wanandroid.ui
 
+import android.lib.base.log.LogUtils
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -13,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import lishui.lib.base.log.LogUtils
 import lishui.lib.router.core.Router
 import lishui.module.wanandroid.R
 import lishui.module.wanandroid.net.Article

@@ -5,6 +5,8 @@ import android.app.Application
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.le.*
 import android.content.pm.PackageManager
+import android.lib.base.log.LogUtils
+import android.lib.base.util.Utilities
 import android.net.ConnectivityManager
 import android.os.ParcelUuid
 import androidx.lifecycle.AndroidViewModel
@@ -12,7 +14,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import lishui.lib.base.log.LogUtils
 import lishui.module.connect.bluetooth.BleController
 import lishui.module.connect.bluetooth.BleScanViewState
 import java.io.BufferedReader
@@ -149,13 +150,13 @@ class ChatViewModel(private val app: Application) : AndroidViewModel(app) {
                     LogUtils.d("runSocketServer exception: $ex")
                 } finally {
                     bufferedReader?.let {
-                        lishui.lib.base.util.Utilities.closeSilently(it)
+                        Utilities.closeSilently(it)
                     }
                     bufferedWriter?.let {
-                        lishui.lib.base.util.Utilities.closeSilently(it)
+                        Utilities.closeSilently(it)
                     }
                     socket?.let {
-                        lishui.lib.base.util.Utilities.closeSilently(it)
+                        Utilities.closeSilently(it)
                     }
                 }
             }
@@ -205,13 +206,13 @@ class ChatViewModel(private val app: Application) : AndroidViewModel(app) {
             LogUtils.d("runSocketClient exception: $ex")
         } finally {
             bufferedReader?.let {
-                lishui.lib.base.util.Utilities.closeSilently(it)
+                Utilities.closeSilently(it)
             }
             bufferedWriter?.let {
-                lishui.lib.base.util.Utilities.closeSilently(it)
+                Utilities.closeSilently(it)
             }
             socket?.let {
-                lishui.lib.base.util.Utilities.closeSilently(it)
+                Utilities.closeSilently(it)
             }
         }
     }

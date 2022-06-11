@@ -3,6 +3,6 @@ apply from: "${rootDir}/config/kotlin_android.gradle"
 
 dependencies {
 
-    implementation deps.lishui_base
+    implementation deps.lishui_android_base
 
 }

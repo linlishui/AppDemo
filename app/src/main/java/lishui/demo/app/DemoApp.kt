@@ -1,5 +1,6 @@
 package lishui.demo.app
 
-import lishui.lib.base.BaseApplication
+import android.lib.base.BaseApplication
+
 
 class DemoApp : BaseApplication()

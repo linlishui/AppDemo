@@ -3,11 +3,11 @@ package lishui.service.misc.util;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.lib.base.util.EnvironmentUtils;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import lishui.lib.base.util.EnvironmentUtils;
 
 /**
  * Created by lishui.lin on 20-9-28
@@ -17,7 +17,7 @@ public class PermissionUtils {
     private static Hashtable<String, Integer> sPermissions = new Hashtable<>();
 
     public static boolean hasPermission(Context context, final String permission) {
-        if (EnvironmentUtils.isAtLeastM()) {
+        if (EnvironmentUtils.isAtLeastN()) {
             if (!sPermissions.containsKey(permission)
                     || sPermissions.get(permission) == PackageManager.PERMISSION_DENIED) {
                 final int permissionState = context.checkSelfPermission(permission);

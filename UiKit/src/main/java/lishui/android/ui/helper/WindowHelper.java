@@ -68,9 +68,7 @@ public class WindowHelper {
 
         window.setNavigationBarColor(navbarColor);
         window.setStatusBarColor(statusBarColor);
-        int systemUiVisibility = (edgeToEdgeEnabled ? EDGE_TO_EDGE_FLAGS : SYSTEM_UI_FLAG_VISIBLE)
-                | currentStatusBar
-                | currentNavBar;
+        int systemUiVisibility = (edgeToEdgeEnabled ? EDGE_TO_EDGE_FLAGS : SYSTEM_UI_FLAG_VISIBLE) | currentStatusBar | currentNavBar;
 
         decorView.setSystemUiVisibility(systemUiVisibility);
     }

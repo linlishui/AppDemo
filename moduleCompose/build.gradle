@@ -21,8 +21,8 @@ dependencies {
     implementation project(path: ':serviceCore')
 
     implementation deps.core_ktx
-    implementation deps.lishui_base
     implementation deps.lishui_router
+    implementation deps.lishui_android_base
 
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"

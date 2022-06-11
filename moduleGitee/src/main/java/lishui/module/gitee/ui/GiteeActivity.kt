@@ -1,11 +1,11 @@
 package lishui.module.gitee.ui
 
+import android.lib.base.log.LogUtils
 import android.os.Bundle
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import lishui.lib.base.log.LogUtils
 import lishui.module.gitee.viewmodel.GiteeViewModel
 
 private const val TAG = "GiteeActivity"

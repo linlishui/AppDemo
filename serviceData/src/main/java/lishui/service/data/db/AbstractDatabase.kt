@@ -1,12 +1,11 @@
 package lishui.service.data.db
 
+import android.lib.base.log.LogUtils
+import android.lib.base.util.ThreadUtils
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import kotlinx.coroutines.*
-import lishui.lib.base.log.LogUtils
-import lishui.lib.base.util.ThreadUtils
 import lishui.service.core.AppDemo
 
 /**

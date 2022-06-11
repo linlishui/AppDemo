@@ -1,8 +1,8 @@
 package lishui.module.wanandroid.source
 
+import android.lib.base.log.LogUtils
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import lishui.lib.base.log.LogUtils
 import lishui.service.net.NetClient
 import lishui.module.wanandroid.net.Article
 import lishui.module.wanandroid.net.task.WanNavArticlesTask

@@ -1,8 +1,8 @@
 package lishui.module.wanandroid.ui
 
+import android.lib.base.BaseActivity
 import android.os.Bundle
 import lishui.module.wanandroid.R
-import lishui.lib.base.BaseActivity
 
 class WanAndroidActivity : BaseActivity() {
 

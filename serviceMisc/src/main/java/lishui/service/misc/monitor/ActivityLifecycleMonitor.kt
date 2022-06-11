@@ -2,8 +2,8 @@ package lishui.service.misc.monitor
 
 import android.app.Activity
 import android.app.Application
+import android.lib.base.log.LogUtils
 import android.os.Bundle
-import lishui.lib.base.log.LogUtils
 import org.jetbrains.annotations.TestOnly
 
 /**

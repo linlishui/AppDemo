@@ -14,12 +14,12 @@
         android:orderInCategory="1"
         android:title="@string/item_name_wanandroid" />
 
-    <item
-        android:id="@+id/action_main_compose"
-        android:enabled="true"
-        android:icon="@drawable/ic_baseline_developer_board_24"
-        android:orderInCategory="2"
-        android:title="@string/item_name_compose" />
+<!--    <item-->
+<!--        android:id="@+id/action_main_compose"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/ic_baseline_developer_board_24"-->
+<!--        android:orderInCategory="2"-->
+<!--        android:title="@string/item_name_compose" />-->
 
     <item
         android:id="@+id/action_main_self"

@@ -1,6 +1,7 @@
 package lishui.module.connect.bluetooth
 
 import android.bluetooth.BluetoothDevice
+import android.lib.base.log.LogUtils
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -10,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import lishui.lib.base.log.LogUtils
 import lishui.module.connect.R
 import lishui.module.connect.model.ChatMessage
 import lishui.module.connect.ui.adapter.ChatMessageAdapter

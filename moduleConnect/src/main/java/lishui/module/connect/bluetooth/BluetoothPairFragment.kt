@@ -4,6 +4,7 @@ import android.app.Activity
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.content.Intent
+import android.lib.base.log.LogUtils
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -15,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import lishui.android.ui.extensions.hidden
-import lishui.lib.base.log.LogUtils
 import lishui.module.connect.R
 import lishui.module.connect.viewmodel.ChatViewModel
 

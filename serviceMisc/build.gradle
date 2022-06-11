@@ -5,6 +5,6 @@ dependencies {
 
     implementation project(path: ':serviceCore')
 
-    implementation deps.lishui_base
+    implementation deps.lishui_android_base
 
 }

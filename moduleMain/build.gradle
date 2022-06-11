@@ -7,7 +7,7 @@ dependencies {
     implementation project(path: ':serviceCore')
     implementation project(path: ':serviceMisc')
 
-    implementation deps.lishui_base
+    implementation deps.lishui_android_base
     implementation deps.lishui_router
 
     implementation deps.appcompat

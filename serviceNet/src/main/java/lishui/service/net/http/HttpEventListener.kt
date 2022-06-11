@@ -1,6 +1,6 @@
 package lishui.service.net.http
 
-import lishui.lib.base.log.LogUtils
+import android.lib.base.log.LogUtils
 import lishui.service.net.NetCommonConfigs.NET_TAG
 import okhttp3.Call
 import okhttp3.EventListener

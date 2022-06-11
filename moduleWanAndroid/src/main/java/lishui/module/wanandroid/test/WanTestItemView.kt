@@ -1,10 +1,10 @@
 package lishui.module.wanandroid.test
 
 import android.content.Context
+import android.lib.base.log.LogUtils
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
-import lishui.lib.base.log.LogUtils
 
 /**
  *  author : linlishui

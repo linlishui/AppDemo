@@ -1,6 +1,7 @@
 package lishui.service.data.pref
 
 import android.content.Context
+import android.lib.base.log.LogUtils
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
@@ -8,7 +9,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
-import lishui.lib.base.log.LogUtils
 import lishui.service.core.AppDemo
 import java.io.IOException
 

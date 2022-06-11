@@ -4,8 +4,8 @@ import android.app.Activity
 import android.app.Application
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.lib.base.log.LogUtils
 import dalvik.system.DexClassLoader
-import lishui.lib.base.log.LogUtils
 import java.io.File
 
 object PluginManager {

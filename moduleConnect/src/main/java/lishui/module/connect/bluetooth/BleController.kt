@@ -6,9 +6,9 @@ import android.bluetooth.le.AdvertiseData
 import android.bluetooth.le.AdvertiseSettings
 import android.bluetooth.le.BluetoothLeAdvertiser
 import android.content.Context
+import android.lib.base.log.LogUtils
 import android.os.ParcelUuid
 import androidx.lifecycle.MutableLiveData
-import lishui.lib.base.log.LogUtils
 import lishui.module.connect.model.ChatMessage
 import java.util.*
 

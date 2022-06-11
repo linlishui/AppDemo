@@ -12,6 +12,6 @@ dependencies {
     implementation deps.constraintlayout
     implementation deps.lifecycle_viewmodel_ktx
 
-    implementation deps.lishui_base
+    implementation deps.lishui_android_base
     implementation deps.lishui_router
 }

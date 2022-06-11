@@ -1,8 +1,8 @@
 package lishui.service.misc.performance;
 
+import android.lib.base.log.LogUtils;
 import android.util.Printer;
 
-import lishui.lib.base.log.LogUtils;
 
 
 /**

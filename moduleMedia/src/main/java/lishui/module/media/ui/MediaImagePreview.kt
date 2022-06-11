@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.graphics.*
+import android.lib.base.util.CommonUtils
 import android.net.Uri
 import android.os.ParcelFileDescriptor
 import android.util.AttributeSet
@@ -13,7 +14,6 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Scroller
 import androidx.annotation.ColorInt
 import kotlinx.coroutines.*
-import lishui.lib.base.util.CommonUtils
 import lishui.service.imager.ImageLoader
 import java.io.FileNotFoundException
 import java.io.IOException

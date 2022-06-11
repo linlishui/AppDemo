@@ -5,7 +5,7 @@ dependencies {
 
     api deps.gson
 
-    implementation deps.lishui_base
+    implementation deps.lishui_android_base
     implementation deps.kotlinx_coroutines_core
 
     implementation deps.okhttp3

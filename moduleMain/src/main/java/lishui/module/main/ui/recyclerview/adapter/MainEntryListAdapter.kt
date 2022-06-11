@@ -26,7 +26,7 @@ class MainEntryListAdapter : RecyclerAdapter(viewHolderFactory) {
         entryList.add(RecyclerData(ChatQuickEntry()))
         entryList.add(RecyclerData(MediaQuickEntry()))
         entryList.add(RecyclerData(GiteeQuickEntry()))
-        entryList.add(RecyclerData(ComposeQuickEntry()))
+        //entryList.add(RecyclerData(ComposeQuickEntry()))
         //entryList.add(RecyclerData(FlutterQuickEntry()))
         entryList.add(RecyclerData(MyServerQuickEntry()))
         entryList.add(RecyclerData(WanAndroidQuickEntry()))

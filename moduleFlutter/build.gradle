@@ -5,8 +5,8 @@ dependencies {
 
     implementation project(path: ':serviceCore')
 
-    implementation deps.lishui_base
     implementation deps.lishui_router
+    implementation deps.lishui_android_base
 
     debugImplementation 'lishui.demo.flutter:flutter_debug:1.0'
     releaseImplementation 'lishui.demo.flutter:flutter_release:1.0'

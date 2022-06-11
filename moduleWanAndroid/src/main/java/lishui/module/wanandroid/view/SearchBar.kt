@@ -3,13 +3,15 @@ package lishui.module.wanandroid.view
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
+import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.LinearLayout
 import androidx.core.widget.doAfterTextChanged
 import lishui.module.wanandroid.R
 import lishui.android.ui.extensions.hidden
-import lishui.lib.base.util.KeyboardUtils
+import lishui.android.ui.extensions.hideKeyboard
+import lishui.android.ui.extensions.showKeyboard
 
 
 class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
@@ -42,7 +44,7 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
         }
 
         fun looseFocus() {
-            KeyboardUtils.hide(textField)
+            textField.hideKeyboard()
             focus.requestFocus()
         }
 
@@ -57,7 +59,7 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
         }
 
         textField.setOnEditorActionListener { _, actionId, event ->
-            if (KeyboardUtils.isActionUp(event)) {
+            if (event == null || KeyEvent.ACTION_UP == event.action) {
                 looseFocus()
             }
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -72,7 +74,7 @@ class SearchBar(context: Context, attrs: AttributeSet? = null) : LinearLayout(co
             if (!textField.hasFocus()) {
                 textField.requestFocus()
                 // additionally ensure keyboard is showing
-                KeyboardUtils.show(textField)
+                textField.showKeyboard()
             }
         }
 

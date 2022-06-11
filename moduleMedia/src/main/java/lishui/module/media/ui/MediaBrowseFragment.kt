@@ -1,5 +1,6 @@
 package lishui.module.media.ui
 
+import android.lib.base.log.LogUtils
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
@@ -8,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
-import lishui.lib.base.log.LogUtils
 import lishui.module.media.R
 import lishui.module.media.viewmodel.MediaViewModel
 

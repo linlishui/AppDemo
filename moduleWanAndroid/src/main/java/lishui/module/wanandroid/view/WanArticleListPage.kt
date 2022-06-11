@@ -1,6 +1,9 @@
 package lishui.module.wanandroid.view
 
 import android.content.Context
+import android.lib.base.BaseActivity
+import android.lib.base.log.LogUtils
+import android.lib.base.util.CommonUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -13,9 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import lishui.android.ui.extensions.dp
 import lishui.android.ui.widget.floating.AbstractFloatingView
-import lishui.lib.base.BaseActivity
-import lishui.lib.base.log.LogUtils
-import lishui.lib.base.util.CommonUtils
 import lishui.lib.router.core.Router
 import lishui.module.wanandroid.R
 import lishui.module.wanandroid.net.Article

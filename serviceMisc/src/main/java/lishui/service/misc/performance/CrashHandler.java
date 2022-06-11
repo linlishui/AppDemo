@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.icu.text.SimpleDateFormat;
+import android.lib.base.log.LogUtils;
+import android.lib.base.util.EnvironmentUtils;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
@@ -17,8 +19,6 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import lishui.lib.base.log.LogUtils;
-import lishui.lib.base.util.EnvironmentUtils;
 
 /**
  * @author lishui.lin

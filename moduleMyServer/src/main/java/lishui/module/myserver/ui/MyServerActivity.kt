@@ -1,9 +1,8 @@
 package lishui.module.myserver.ui
 
+import android.lib.base.util.ThreadUtils
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import lishui.lib.base.util.ThreadUtils
 import lishui.module.myserver.net.task.SayHelloTask
 import lishui.service.net.NetClient
 

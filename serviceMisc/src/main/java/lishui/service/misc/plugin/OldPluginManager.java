@@ -4,12 +4,12 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.lib.base.log.LogUtils;
 
 import java.io.File;
 import java.lang.reflect.Method;
 
 import dalvik.system.DexClassLoader;
-import lishui.lib.base.log.LogUtils;
 
 /**
  * @author lishui.lin

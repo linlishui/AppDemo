@@ -1,8 +1,8 @@
 package lishui.demo.app.accessibility
 
 import android.accessibilityservice.AccessibilityService
+import android.lib.base.log.LogUtils
 import android.view.accessibility.AccessibilityEvent
-import lishui.lib.base.log.LogUtils
 
 class DemoAccessibilityService : AccessibilityService() {
 

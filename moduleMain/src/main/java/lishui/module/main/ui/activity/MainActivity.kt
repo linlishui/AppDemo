@@ -1,13 +1,13 @@
 package lishui.module.main.ui.activity
 
 import android.Manifest
+import android.lib.base.BaseActivity
+import android.lib.base.log.LogUtils
 import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import lishui.lib.base.BaseActivity
-import lishui.lib.base.log.LogUtils
 import lishui.module.main.R
 import lishui.service.misc.permission.PermissionCallback
 import lishui.service.misc.permission.PermissionChecker
@@ -43,9 +43,9 @@ class MainActivity : BaseActivity() {
                 R.id.action_main_wanandroid -> {
                     return@setOnItemSelectedListener navigate(R.id.fragment_wan_tab)
                 }
-                R.id.action_main_compose -> {
-                    return@setOnItemSelectedListener navigate(R.id.fragment_compose_tab)
-                }
+//                R.id.action_main_compose -> {
+//                    return@setOnItemSelectedListener navigate(R.id.fragment_compose_tab)
+//                }
                 R.id.action_main_self -> {
                     return@setOnItemSelectedListener navigate(R.id.fragment_compose_me)
                 }

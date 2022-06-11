@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "lishui.demo"
-        versionCode Integer.valueOf("22010401")
-        versionName "v1.0.0.220104.1"
+        versionCode Integer.valueOf("22061101")
+        versionName "12.220611.1"
 
         //testInstrumentationRunner "lishui.demo.CustomTestRunner"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -37,6 +37,19 @@ android {
         debug {
             debuggable true
             minifyEnabled false
+        }
+    }
+
+    flavorDimensions "stage"
+    productFlavors {
+        dev {
+            dimension "stage"
+            versionNameSuffix "-dev"
+            applicationIdSuffix '.dev'
+        }
+
+        prod {
+            dimension "stage"
         }
     }
 
@@ -97,7 +110,7 @@ dependencies {
     implementation project(path: ':moduleGitee')
     implementation project(path: ':moduleProfile')
     implementation project(path: ':moduleConnect')
-    implementation project(path: ':moduleCompose')
+    //implementation project(path: ':moduleCompose')
     //implementation project(path: ':moduleFlutter')
     implementation project(path: ':moduleMyServer')
     implementation project(path: ':moduleWanAndroid')
@@ -111,7 +124,7 @@ dependencies {
     implementation deps.app_startup
 
     // Custom
-    implementation deps.lishui_base
+    implementation deps.lishui_android_base
     implementation deps.lishui_router
 
     /* Debug tools */

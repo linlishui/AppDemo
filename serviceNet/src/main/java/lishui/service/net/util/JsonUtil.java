@@ -1,6 +1,7 @@
 package lishui.service.net.util;
 
 import android.content.Intent;
+import android.lib.base.log.LogUtils;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,8 +24,6 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-
-import lishui.lib.base.log.LogUtils;
 
 /**
  * author : linlishui

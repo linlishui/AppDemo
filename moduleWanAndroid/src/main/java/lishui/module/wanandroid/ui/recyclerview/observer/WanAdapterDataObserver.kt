@@ -1,7 +1,7 @@
 package lishui.module.wanandroid.ui.recyclerview.observer
 
+import android.lib.base.log.LogUtils
 import androidx.recyclerview.widget.RecyclerView
-import lishui.lib.base.log.LogUtils
 
 /**
  *  author : linlishui

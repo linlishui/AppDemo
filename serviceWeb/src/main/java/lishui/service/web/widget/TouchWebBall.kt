@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
 import android.graphics.Rect
+import android.lib.base.util.Utilities
 import android.util.AttributeSet
 import android.util.FloatProperty
 import android.util.Property
@@ -15,7 +16,6 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.annotation.IntRange
 import lishui.android.ui.extensions.dp
-import lishui.lib.base.util.Utilities
 import lishui.service.web.R
 import kotlin.math.absoluteValue
 import kotlin.math.min

@@ -2,6 +2,7 @@ package lishui.module.media.viewmodel
 
 import android.app.Application
 import android.content.ContentUris
+import android.lib.base.log.LogUtils
 import android.net.Uri
 import android.provider.MediaStore
 import androidx.lifecycle.AndroidViewModel
@@ -15,7 +16,6 @@ import lishui.module.media.ui.MediaListAdapter
 import lishui.module.media.model.ImageDataModel
 import lishui.module.media.model.MediaDataModel
 import lishui.module.media.model.VideoDataModel
-import lishui.lib.base.log.LogUtils
 
 /**
  * @author lishui.lin

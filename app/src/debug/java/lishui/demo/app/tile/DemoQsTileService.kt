@@ -1,7 +1,7 @@
 package lishui.demo.app.tile
 
+import android.lib.base.log.LogUtils
 import android.service.quicksettings.TileService
-import lishui.lib.base.log.LogUtils
 
 class DemoQsTileService: TileService() {
 

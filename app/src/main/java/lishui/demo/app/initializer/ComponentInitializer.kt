@@ -2,11 +2,11 @@ package lishui.demo.app.initializer
 
 import android.app.Application
 import android.content.Context
+import android.lib.base.component.StartupComponent
+import android.lib.base.log.LogUtils
+import android.lib.base.util.ThreadUtils
 import androidx.startup.Initializer
 import lishui.demo.app.R
-import lishui.lib.base.component.StartupComponent
-import lishui.lib.base.log.LogUtils
-import lishui.lib.base.util.ThreadUtils
 import lishui.lib.router.core.Router
 
 /**
@@ -32,7 +32,7 @@ class ComponentInitializer : Initializer<Boolean> {
                 val clazz = Class.forName(component).asSubclass(StartupComponent::class.java)
                 val instance = clazz.newInstance()
                 if (instance.isSync()) {
-                    ThreadUtils.getMainThreadHandler().post { instance.init(app) }
+                    ThreadUtils.getUiThreadHandler().post { instance.init(app) }
                 } else {
                     ThreadUtils.executeOnComputation { instance.init(app) }
                 }

@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
+import android.lib.base.util.EnvironmentUtils
 import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.os.Build
@@ -15,7 +16,6 @@ import android.telephony.SubscriptionInfo
 import android.telephony.SubscriptionManager
 import android.text.BidiFormatter
 import android.text.TextUtils
-import lishui.lib.base.util.EnvironmentUtils
 import java.net.InetAddress
 
 
@@ -72,9 +72,9 @@ class DeviceInfoController(private val mContext: Context) {
 
     private fun initializeDeviceVersion() {
         if (EnvironmentUtils.isAtLeastR()) {
-            val version = Build.VERSION.RELEASE_OR_CODENAME
+            Build.VERSION.RELEASE_OR_CODENAME
         } else {
-            val version = "${Build.VERSION.RELEASE}_${Build.VERSION.CODENAME}"
+            "${Build.VERSION.RELEASE}_${Build.VERSION.CODENAME}"
         }
     }
 

@@ -1,9 +1,9 @@
 package lishui.service.misc
 
 import android.app.Application
+import android.lib.base.component.StartupComponent
 import android.os.Build
 import android.os.Looper
-import lishui.lib.base.component.StartupComponent
 import lishui.service.misc.performance.CrashHandler
 import lishui.service.misc.performance.LooperPrinter
 

@@ -13,14 +13,14 @@ ext.build_versions = build_versions
 /////////////////////////////////////// versions start
 def versions = [:]
 // Top level in build.gradle
-versions.android_gradle_plugin = '7.1.2'
-versions.kotlin_version = '1.6.10'
+versions.android_gradle_plugin = '7.2.1'
+versions.kotlin_version = '1.6.21'
 
 // Kotlin Coroutines
 versions.kotlinx_coroutines_core = '1.5.2'
 
 // AndroidX
-versions.appcompat = '1.4.0'
+versions.appcompat = '1.4.2'
 versions.annotation = '1.3.0'
 versions.core_ktx = '1.7.0'
 versions.fragment = '1.3.6'
@@ -57,7 +57,7 @@ versions.okhttp3_logging = '5.0.0-alpha.2'
 versions.qmui = '2.0.0-alpha10'
 
 // Custom library
-versions.lishui_base = '0.0.1'
+versions.lishui_android_base = '0.0.1'
 versions.lishui_router = '0.0.2'
 versions.lishui_player = '0.0.1'
 
@@ -126,7 +126,7 @@ deps.okhttp3_logging = "com.squareup.okhttp3:logging-interceptor:$versions.okhtt
 deps.qmui = "'com.qmuiteam:qmui:$versions.qmui"
 
 // Custom impl
-deps.lishui_base = "io.github.linlishui:base:$versions.lishui_base"
+deps.lishui_android_base = "io.github.linlishui:android-base:$versions.lishui_android_base"
 deps.lishui_router = "io.github.linlishui:router:$versions.lishui_router"
 deps.lishui_player = "io.github.linlishui:player:$versions.lishui_player"
 

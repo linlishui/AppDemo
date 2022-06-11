@@ -17,7 +17,7 @@ dependencies {
 
     implementation project(path: ':serviceCore')
 
-    implementation deps.lishui_base
+    implementation deps.lishui_android_base
 
     // 暂时注释掉 room 的kapt
     //kapt deps.room_compiler

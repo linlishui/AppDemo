@@ -1,7 +1,7 @@
 package lishui.service.net.http
 
+import android.lib.base.log.LogUtils
 import android.text.TextUtils
-import lishui.lib.base.log.LogUtils
 import lishui.service.net.NetCommonConfigs.NET_DEBUG
 import lishui.service.net.NetCommonConfigs.NET_TAG
 import okhttp3.Dns

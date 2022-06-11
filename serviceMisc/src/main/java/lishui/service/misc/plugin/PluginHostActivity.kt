@@ -4,10 +4,10 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.res.Resources
+import android.lib.base.log.LogUtils
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.MotionEvent
-import lishui.lib.base.log.LogUtils
 import lishui.service.misc.R
 
 /**

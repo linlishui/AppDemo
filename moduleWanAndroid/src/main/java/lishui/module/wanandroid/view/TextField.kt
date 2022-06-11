@@ -5,7 +5,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.KeyEvent
 import android.widget.EditText
-import lishui.lib.base.util.KeyboardUtils
 
 @SuppressLint("AppCompatCustomView")
 class TextField(context: Context, attrs: AttributeSet?) : EditText(context, attrs) {
@@ -21,7 +20,7 @@ class TextField(context: Context, attrs: AttributeSet?) : EditText(context, attr
             onBackPressedListener?.also { listener ->
                 if (hasFocus()
                         && KeyEvent.KEYCODE_BACK == keyCode
-                        && KeyboardUtils.isActionUp(event)) {
+                        && (event == null || KeyEvent.ACTION_UP == event.action)) {
                     listener()
                 }
             }

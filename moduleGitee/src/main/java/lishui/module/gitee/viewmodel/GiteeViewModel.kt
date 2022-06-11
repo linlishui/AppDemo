@@ -1,5 +1,6 @@
 package lishui.module.gitee.viewmodel
 
+import android.lib.base.log.LogUtils
 import android.util.Base64
 import android.util.LruCache
 import androidx.lifecycle.LiveData
@@ -7,7 +8,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import lishui.lib.base.log.LogUtils
 import lishui.module.gitee.model.UserRepo
 import lishui.module.gitee.net.GiteeToken
 import lishui.module.gitee.net.RepoTree

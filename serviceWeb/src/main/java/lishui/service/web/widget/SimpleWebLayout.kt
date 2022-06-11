@@ -6,14 +6,14 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.lib.base.log.LogUtils
+import android.lib.base.util.CommonUtils
 import android.net.Uri
 import android.os.Build
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.webkit.*
 import android.widget.FrameLayout
-import lishui.lib.base.log.LogUtils
-import lishui.lib.base.util.CommonUtils
 import lishui.service.web.R
 import lishui.service.web.callback.WebMethodsCallback
 import java.io.File

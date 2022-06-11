@@ -1,10 +1,10 @@
 package lishui.module.wanandroid.ui
 
+import android.lib.base.log.LogUtils
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import lishui.lib.base.log.LogUtils
 import lishui.module.wanandroid.viewmodel.WanAndroidViewModel
 
 /**

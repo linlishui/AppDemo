@@ -4,12 +4,12 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.hardware.biometrics.BiometricManager
 import android.hardware.biometrics.BiometricPrompt
+import android.lib.base.executor.GlobalTaskExecutor
+import android.lib.base.log.LogUtils
+import android.lib.base.util.EnvironmentUtils
 import android.os.Build
 import android.os.CancellationSignal
 import androidx.annotation.RequiresApi
-import lishui.lib.base.executor.GlobalTaskExecutor
-import lishui.lib.base.log.LogUtils
-import lishui.lib.base.util.EnvironmentUtils
 
 object BiometricHandler {
 

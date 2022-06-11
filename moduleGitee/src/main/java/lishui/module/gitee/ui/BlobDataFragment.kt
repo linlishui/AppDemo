@@ -1,5 +1,6 @@
 package lishui.module.gitee.ui
 
+import android.lib.base.log.LogUtils
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
@@ -9,7 +10,6 @@ import android.widget.TextView
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.lifecycle.ViewModelProvider
 import lishui.android.ui.extensions.hidden
-import lishui.lib.base.log.LogUtils
 import lishui.module.gitee.R
 import lishui.module.gitee.viewmodel.GiteeViewModel
 
