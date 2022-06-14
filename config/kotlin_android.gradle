@@ -3,6 +3,10 @@ apply from: "${rootDir}/config/common_build.gradle"
 
 android {
 
+    viewBinding {
+        enabled = true
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }

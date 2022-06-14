@@ -10,7 +10,6 @@ android {
         targetSdkVersion build_versions.target_sdk
     }
 
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -19,9 +18,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     lint {
         abortOnError false
         checkReleaseBuilds false
+    }
+
+    viewBinding {
+        enabled = true
     }
 }
 

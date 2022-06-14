@@ -8,7 +8,9 @@ import androidx.annotation.IdRes
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import lishui.android.ui.delegate.viewBinding
 import lishui.module.main.R
+import lishui.module.main.databinding.ActivityMainLayoutBinding
 import lishui.service.misc.permission.PermissionCallback
 import lishui.service.misc.permission.PermissionChecker
 import java.io.FileDescriptor
@@ -17,11 +19,11 @@ import java.io.PrintWriter
 
 class MainActivity : BaseActivity() {
 
+    private val mBinding by viewBinding(ActivityMainLayoutBinding::bind)
+
     private val navController: NavController by lazy {
         findNavController(R.id.nav_host_fragment)
     }
-
-    private lateinit var bottomNav: BottomNavigationView
 
     private lateinit var permissionsChecker: PermissionChecker
 
@@ -34,8 +36,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initViews() {
-        bottomNav = findViewById(R.id.main_bottom_nav)
-        bottomNav.setOnItemSelectedListener {
+        mBinding.mainBottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.action_main_home -> {
                     return@setOnItemSelectedListener navigate(R.id.fragment_home_tab)

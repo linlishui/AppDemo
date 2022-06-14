@@ -88,11 +88,7 @@ class WanSearchFragment : Fragment(R.layout.fragment_wan_search_layout), View.On
                 is LoadState.Error -> {
                     val state = it.refresh as LoadState.Error
                     mProgressBar.hide()
-                    Toast.makeText(
-                        context,
-                        "Load Error: ${state.error.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(context, "Load Error: ${state.error.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }

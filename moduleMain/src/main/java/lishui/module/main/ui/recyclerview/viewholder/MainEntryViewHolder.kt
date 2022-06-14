@@ -2,9 +2,11 @@ package lishui.module.main.ui.recyclerview.viewholder
 
 import android.view.ViewGroup
 import android.widget.TextView
+import lishui.android.ui.delegate.viewBinding
 import lishui.android.ui.widget.list.RecyclerData
 import lishui.android.ui.widget.list.RecyclerViewHolder
 import lishui.module.main.R
+import lishui.module.main.databinding.ItemMainHomeEntryBinding
 import lishui.module.main.ui.recyclerview.model.QuickEntry
 
 /**
@@ -13,13 +15,13 @@ import lishui.module.main.ui.recyclerview.model.QuickEntry
  */
 class MainEntryViewHolder(parent: ViewGroup) : RecyclerViewHolder(parent, R.layout.item_main_home_entry) {
 
-    private val entryTitleView: TextView = itemView.findViewById(R.id.main_entry_title)
+    private val mBinding by viewBinding(ItemMainHomeEntryBinding::bind)
 
     override fun onBindViewHolder(itemData: RecyclerData?, payloads: List<Any>) {
         val viewData = itemData?.viewData
         if (viewData is QuickEntry) {
             itemView.tag = viewData
-            entryTitleView.text = viewData.title
+            mBinding.mainEntryTitle.text = viewData.title
         }
     }
 }

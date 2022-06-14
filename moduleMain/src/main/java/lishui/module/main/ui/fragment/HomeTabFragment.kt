@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import lishui.android.ui.delegate.viewBinding
 import lishui.android.ui.widget.list.RecyclerEventMediator
 import lishui.lib.router.core.Router
 import lishui.module.main.R
+import lishui.module.main.databinding.FragmentHomeTabPageBinding
 import lishui.module.main.ui.recyclerview.adapter.MainEntryListAdapter
 import lishui.module.main.ui.recyclerview.model.*
 import lishui.service.core.router.RouterPath
@@ -14,13 +16,13 @@ import lishui.service.core.router.RouterPath
 
 class HomeTabFragment : Fragment(R.layout.fragment_home_tab_page) {
 
+    private val mBinding by viewBinding(FragmentHomeTabPageBinding::bind)
+
     private val adapter = MainEntryListAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<RecyclerView>(R.id.main_entry_list).also {
-            it.adapter = adapter
-        }
+        mBinding.mainEntryList.adapter = adapter
         adapter.setItemEventMediator(object : RecyclerEventMediator() {
             override fun onClick(v: View?) {
                 processClick(v)

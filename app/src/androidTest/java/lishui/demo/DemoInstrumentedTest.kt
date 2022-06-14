@@ -3,6 +3,8 @@ package lishui.demo
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorManager
+import android.lib.base.log.LogUtils
+import android.lib.base.util.Utilities
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.telecom.TelecomManager
@@ -11,8 +13,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.coroutines.runBlocking
 import lishui.demo.app.BuildConfig
-import lishui.lib.base.log.LogUtils
-import lishui.lib.base.util.Utilities
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before

@@ -53,10 +53,6 @@ android {
         }
     }
 
-    android.buildFeatures {
-        //viewBinding = true
-    }
-
     // Disable release builds for now
     android.variantFilter { variant ->
         if (DEV_DEBUG.equalsIgnoreCase("true")) {
