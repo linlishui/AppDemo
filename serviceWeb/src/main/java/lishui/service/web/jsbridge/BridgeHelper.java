@@ -15,26 +15,23 @@ import java.util.Map;
 
 /**
  * JsBridge辅助类,帮助集成JsBridge功能.
- *
- * @author ZhengAn
- * @date 2019-06-30
  */
 public class BridgeHelper implements WebViewJavascriptBridge {
 
     private static final String TAG = "BridgeHelper";
 
     private static final String BRIDGE_JS = "WebViewJavascriptBridge.js";
-    private Map<String, CallBackFunction> responseCallbacks = new HashMap<>();
-    private Map<String, BridgeHandler> messageHandlers = new HashMap<>();
+    private final Map<String, CallBackFunction> responseCallbacks = new HashMap<>();
+    private final Map<String, BridgeHandler> messageHandlers = new HashMap<>();
     private BridgeHandler defaultHandler = new DefaultHandler();
 
-    private List<Message> startupMessage = new ArrayList<>();
+    private List<BridgeMessage> startupMessage = new ArrayList<>();
 
-    private List<Message> getStartupMessage() {
+    private List<BridgeMessage> getStartupMessage() {
         return startupMessage;
     }
 
-    private void setStartupMessage(List<Message> startupMessage) {
+    private void setStartupMessage(List<BridgeMessage> startupMessage) {
         this.startupMessage = startupMessage;
     }
 
@@ -87,7 +84,7 @@ public class BridgeHelper implements WebViewJavascriptBridge {
      * @param responseCallback CallBackFunction
      */
     private void doSend(String handlerName, String data, CallBackFunction responseCallback) {
-        Message m = new Message();
+        BridgeMessage m = new BridgeMessage();
         if (!TextUtils.isEmpty(data)) {
             m.setData(data);
         }
@@ -107,7 +104,7 @@ public class BridgeHelper implements WebViewJavascriptBridge {
      *
      * @param m Message
      */
-    private void queueMessage(Message m) {
+    private void queueMessage(BridgeMessage m) {
         if (startupMessage != null) {
             startupMessage.add(m);
         } else {
@@ -120,7 +117,7 @@ public class BridgeHelper implements WebViewJavascriptBridge {
      *
      * @param m Message
      */
-    private void dispatchMessage(Message m) {
+    private void dispatchMessage(BridgeMessage m) {
         String messageJson = m.toJson();
         //escape special characters for json string  为json字符串转义特殊字符
         messageJson = messageJson.replaceAll("(\\\\)([^utrn])", "\\\\\\\\$1$2");
@@ -146,18 +143,18 @@ public class BridgeHelper implements WebViewJavascriptBridge {
                 @Override
                 public void onCallBack(String data) {
                     // deserializeMessage 反序列化消息
-                    List<Message> list = null;
+                    List<BridgeMessage> list;
                     try {
-                        list = Message.toArrayList(data);
+                        list = BridgeMessage.toArrayList(data);
                     } catch (Exception e) {
                         Log.w(TAG, e);
                         return;
                     }
-                    if (list == null || list.isEmpty()) {
+                    if (list.isEmpty()) {
                         return;
                     }
                     for (int i = 0; i < list.size(); i++) {
-                        Message m = list.get(i);
+                        BridgeMessage m = list.get(i);
                         String responseId = m.getResponseId();
                         // 是否是response  CallBackFunction
                         if (!TextUtils.isEmpty(responseId)) {
@@ -173,7 +170,7 @@ public class BridgeHelper implements WebViewJavascriptBridge {
                                 responseFunction = new CallBackFunction() {
                                     @Override
                                     public void onCallBack(String data) {
-                                        Message responseMsg = new Message();
+                                        BridgeMessage responseMsg = new BridgeMessage();
                                         responseMsg.setResponseId(callbackId);
                                         responseMsg.setResponseData(data);
                                         queueMessage(responseMsg);
@@ -255,7 +252,7 @@ public class BridgeHelper implements WebViewJavascriptBridge {
         webViewLoadLocalJs();
 
         if (getStartupMessage() != null) {
-            for (Message m : getStartupMessage()) {
+            for (BridgeMessage m : getStartupMessage()) {
                 dispatchMessage(m);
             }
             setStartupMessage(null);

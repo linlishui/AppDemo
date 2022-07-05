@@ -12,7 +12,7 @@ import android.widget.Toast
  */
 class WebMethodsCallback(private val mContext: Context) {
 
-    /** Show a toast from the web page  */
+    /* Show a toast from the web page  */
     @JavascriptInterface
     fun showToast(toast: String) {
         Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show()

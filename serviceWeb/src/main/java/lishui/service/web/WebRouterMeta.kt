@@ -14,8 +14,6 @@ import lishui.service.web.ui.WebBrowserActivity
  */
 class WebRouterMeta : RouterMeta {
 
-    override fun buildTable(): RouterTable = RouterTable.Builder()
-        .addItem(
-            RouterItem(RouterPath.Web.BROWSER, WebBrowserActivity::class.java, RouteType.ACTIVITY)
-        ).build()
+    override fun buildTable(): RouterTable =
+        RouterTable.Builder().addItem(RouterItem(RouterPath.Web.BROWSER, WebBrowserActivity::class.java, RouteType.ACTIVITY)).build()
 }

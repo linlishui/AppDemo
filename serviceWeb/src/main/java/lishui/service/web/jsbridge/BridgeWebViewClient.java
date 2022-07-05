@@ -11,11 +11,10 @@ import java.net.URLDecoder;
 
 /**
  * 如果要自定义WebViewClient必须要集成此类
- * Created by bruce on 10/28/15.
  */
 public class BridgeWebViewClient extends WebViewClient {
 
-    private BridgeWebView webView;
+    private final BridgeWebView webView;
 
     public BridgeWebViewClient(BridgeWebView webView) {
         this.webView = webView;
@@ -36,11 +35,11 @@ public class BridgeWebViewClient extends WebViewClient {
             webView.flushMessageQueue();
             return true;
         } else {
-            return this.onCustomShouldOverrideUrlLoading(url) ? true : super.shouldOverrideUrlLoading(view, url);
+            return this.onCustomShouldOverrideUrlLoading(url) || super.shouldOverrideUrlLoading(view, url);
         }
     }
 
-    // 增加shouldOverrideUrlLoading在api》=24时
+    // 增加shouldOverrideUrlLoading在 api>=24 判断
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
 
@@ -58,7 +57,7 @@ public class BridgeWebViewClient extends WebViewClient {
                 webView.flushMessageQueue();
                 return true;
             } else {
-                return this.onCustomShouldOverrideUrlLoading(url) ? true : super.shouldOverrideUrlLoading(view, request);
+                return this.onCustomShouldOverrideUrlLoading(url) || super.shouldOverrideUrlLoading(view, request);
             }
         } else {
             return super.shouldOverrideUrlLoading(view, request);
@@ -74,12 +73,10 @@ public class BridgeWebViewClient extends WebViewClient {
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
 
-        if (BridgeWebView.toLoadJs != null) {
-            BridgeUtil.webViewLoadLocalJs(view, BridgeWebView.toLoadJs);
-        }
+        BridgeUtil.webViewLoadLocalJs(view, BridgeWebView.toLoadJs);
 
         if (webView.getStartupMessage() != null) {
-            for (Message m : webView.getStartupMessage()) {
+            for (BridgeMessage m : webView.getStartupMessage()) {
                 webView.dispatchMessage(m);
             }
             webView.setStartupMessage(null);
@@ -95,9 +92,6 @@ public class BridgeWebViewClient extends WebViewClient {
     }
 
 
-    protected void onCustomPageFinished(WebView view, String url) {
-
-    }
-
+    protected void onCustomPageFinished(WebView view, String url) {}
 
 }

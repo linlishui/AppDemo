@@ -34,11 +34,7 @@ object NetClient {
                 .eventListener(HttpEventListener())
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS))
         } else {
-            okhttpClientBuilder.addInterceptor(
-                HttpLoggingInterceptor().setLevel(
-                    HttpLoggingInterceptor.Level.BASIC
-                )
-            )
+            okhttpClientBuilder.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
         }
 
         okhttpClientBuilder.build()
