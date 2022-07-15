@@ -4,6 +4,7 @@ import android.lib.base.util.ThreadUtils
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import lishui.module.myserver.net.task.SayHelloTask
+import lishui.module.myserver.test.ExecutorTest
 import lishui.service.net.NetClient
 
 class MyServerActivity : AppCompatActivity() {
@@ -17,5 +18,11 @@ class MyServerActivity : AppCompatActivity() {
                 }
             }
         }
+        test()
+    }
+
+    private fun test() {
+        val executorTest = ExecutorTest()
+        executorTest.testPriorityExecutor()
     }
 }

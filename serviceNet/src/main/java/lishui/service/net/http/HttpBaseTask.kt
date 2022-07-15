@@ -24,6 +24,9 @@ abstract class HttpBaseTask {
 
     private val queryParams: HashMap<String, String> = HashMap()
 
+    var netResult: NetResult = EmptyNetResult()
+        private set
+
     abstract fun schema(): String
 
     abstract fun host(): String
@@ -93,7 +96,7 @@ abstract class HttpBaseTask {
         queryParams[key] = value
     }
 
-    fun execute(): NetResult {
+    fun execute() {
         try {
             val response: Response = http()
             val reader = parseResponse(
@@ -107,10 +110,10 @@ abstract class HttpBaseTask {
             val jsonObject = json(reader)
             unpackResult(jsonObject)
             response.close()
-            return NetJsonObjectResult(jsonObject)
+            netResult = NetJsonObjectResult(jsonObject)
         } catch (ex: NetException) {
             LogUtils.e(this.javaClass.simpleName, "occur exception when execute network task", ex)
-            return NetExceptionResult(ex)
+            netResult = NetExceptionResult(ex)
         }
     }
 
@@ -142,7 +145,7 @@ abstract class HttpBaseTask {
     @Throws(NetException::class)
     private fun parseResponse(netResponse: NetResponse): Reader {
 
-        LogUtils.d(this.javaClass.simpleName, netResponse.toShortString())
+        //LogUtils.d(this.javaClass.simpleName, netResponse.toShortString())
 
         if (netResponse.code != 200) {
             throw NetNotOk(netResponse.code)
@@ -155,7 +158,7 @@ abstract class HttpBaseTask {
         try {
             return netResponse.body.charStream()
         } catch (ex: Exception) {
-            throw NetUnspecified("parse response fail because get reader error")
+            throw NetUnspecified("parse response fail when get reader error")
         }
     }
 

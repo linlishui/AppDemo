@@ -1,6 +1,8 @@
 package lishui.service.net
 
+import lishui.service.net.result.EmptyNetResult
 import lishui.service.net.result.NetExceptionResult
+import lishui.service.net.result.NetJsonObjectResult
 import lishui.service.net.result.NetResult
 
 // 网络配置常量
@@ -14,6 +16,6 @@ object NetCommonConfigs {
     const val SCHEMA_HTTPS = "https"
 
     // 网络相关的拓展函数
-    fun NetResult.isSuccess() = this !is NetExceptionResult
+    fun NetResult.isSuccess() = this is NetJsonObjectResult
 
 }

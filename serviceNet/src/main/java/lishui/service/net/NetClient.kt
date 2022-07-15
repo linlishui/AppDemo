@@ -8,6 +8,7 @@ import lishui.service.net.NetCommonConfigs.isSuccess
 import lishui.service.net.http.HttpBaseTask
 import lishui.service.net.http.HttpDns
 import lishui.service.net.http.HttpEventListener
+import lishui.service.net.result.EmptyNetResult
 import lishui.service.net.result.NetExceptionResult
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -48,17 +49,22 @@ object NetClient {
         successBlock: T.() -> Unit = { },
         failBlock: (NetExceptionResult) -> Unit = { }
     ) {
-        val netResult = task.execute()
-        if (netResult.isSuccess()) {
-            successBlock.invoke(task)
-        } else {
-            failBlock.invoke(netResult as NetExceptionResult)
+        with(task) {
+            this.execute()
+            if (this.netResult is EmptyNetResult) {
+                // nothing happen
+                return
+            }
+            if (this.netResult.isSuccess()) {
+                successBlock.invoke(task)
+            } else {
+                failBlock.invoke(this.netResult as NetExceptionResult)
+            }
         }
     }
 
-    // todo: 异常或者成功状态，待处理
     suspend fun <T : HttpBaseTask> execute(httpTask: T): T = withContext(Dispatchers.IO) {
-        val netResult = httpTask.execute()
+        httpTask.execute()
         return@withContext httpTask
     }
 }

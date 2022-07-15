@@ -10,3 +10,4 @@ import com.google.gson.JsonObject
 sealed class NetResult
 data class NetJsonObjectResult(val jsonObject: JsonObject) : NetResult()
 data class NetExceptionResult(val netException: NetException) : NetResult()
+data class EmptyNetResult(val emptyTip: String = "empty net result") : NetResult()
