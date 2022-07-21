@@ -2,13 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_fragment_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="lishui.module.media.ui.MediaEntryFragment">
 
     <TextView
-        android:id="@+id/media_browse_page"
+        android:id="@+id/tv_local_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -18,7 +17,7 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:gravity="center"
         android:padding="16dp"
-        android:text="Media browse"
+        android:text="Device Image"
         android:textColor="@color/uikit_text_primary"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/media_video_page"
+        android:id="@+id/tv_local_video"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -36,11 +35,47 @@
         android:foreground="?android:attr/selectableItemBackground"
         android:gravity="center"
         android:padding="16dp"
-        android:text="Media video"
+        android:text="Device Video"
         android:textColor="@color/uikit_text_primary"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/media_browse_page" />
+        app:layout_constraintTop_toBottomOf="@id/tv_local_image" />
+
+    <TextView
+        android:id="@+id/tv_net_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/uikit_bg_layout"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Net Image"
+        android:textColor="@color/uikit_text_primary"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_local_video" />
+
+    <TextView
+        android:id="@+id/tv_net_video"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/uikit_bg_layout"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Net Video"
+        android:textColor="@color/uikit_text_primary"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_net_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

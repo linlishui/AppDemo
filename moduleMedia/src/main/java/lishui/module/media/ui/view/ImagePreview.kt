@@ -1,4 +1,4 @@
-package lishui.module.media.ui
+package lishui.module.media.ui.view
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -24,7 +24,7 @@ import kotlin.math.roundToInt
  * @author lishui.lin
  * Created it on 2021/6/3
  */
-class MediaImagePreview(
+class ImagePreview(
     context: Context,
     attrs: AttributeSet? = null
 ) : androidx.appcompat.widget.AppCompatImageView(context, attrs) {
@@ -117,7 +117,7 @@ class MediaImagePreview(
         }
     }
 
-    fun loadImageFromUri(uri: Uri) {
+    fun loadImageByUri(uri: Uri) {
         ImageLoader.with(this)
             .load(uri)
             .into(this)
@@ -128,6 +128,12 @@ class MediaImagePreview(
 //                setImageBitmap(this)
 //            } ?: Glide.with(context).load(uri).into(this@MediaImagePreview)
 //        }
+    }
+
+    fun loadImageByUrl(url: String) {
+        ImageLoader.with(this)
+            .load(url)
+            .into(this)
     }
 
     fun setExitListener(block: (() -> Unit)?) {

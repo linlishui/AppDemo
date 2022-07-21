@@ -1,6 +1,5 @@
 package lishui.module.media.ui
 
-import android.lib.base.log.LogUtils
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
@@ -9,17 +8,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
+import lishui.android.ui.widget.list.RecyclerEventMediator
 import lishui.module.media.R
+import lishui.module.media.ui.adapter.MediaListAdapter
 import lishui.module.media.viewmodel.MediaViewModel
 
 /**
  * @author lishui.lin
  * Created it on 2021/5/31
  */
-private const val TAB_INTERNAL = "Internal"
-private const val TAB_EXTERNAL = "External"
 
-abstract class MediaBrowseFragment : Fragment(R.layout.fragment_media_browze), View.OnClickListener {
+abstract class LocalMediaListFragment : Fragment(R.layout.fragment_local_media_list) {
+
+    companion object {
+        internal const val TAB_INTERNAL = "Internal"
+        internal const val TAB_EXTERNAL = "External"
+    }
 
     private val mediaListAdapter = MediaListAdapter()
 
@@ -56,8 +60,13 @@ abstract class MediaBrowseFragment : Fragment(R.layout.fragment_media_browze), V
         loadingBar.show()
 
         recyclerView = root.findViewById(R.id.media_browse_list)
-        recyclerView.adapter =
-            mediaListAdapter.also { it.setClickListener(this@MediaBrowseFragment) }
+        recyclerView.adapter = mediaListAdapter
+        mediaListAdapter.setItemEventMediator(object : RecyclerEventMediator() {
+            override fun onClick(v: View?) {
+                val view = v ?: return
+                onClickItem(view)
+            }
+        })
 
         tabLayout = root.findViewById(R.id.media_browse_tabs)
         tabLayout.addTab(tabLayout.newTab().setText(TAB_EXTERNAL))
@@ -83,18 +92,12 @@ abstract class MediaBrowseFragment : Fragment(R.layout.fragment_media_browze), V
     private fun subscribeToViewModel() {
         mediaViewModel.mediaModelList.observe(requireActivity()) {
             loadingBar.hide()
-            mediaListAdapter.updateItems(it)
-        }
-    }
-
-    override fun onClick(v: View?) {
-        v?.let {
-            LogUtils.d(it.tag.toString())
-            onClickItem(it)
+            mediaListAdapter.submitList(it)
         }
     }
 
     internal open fun onBackPressed() {
+        activity?.finish()
     }
 
     internal open fun onInternalTabSelected() {

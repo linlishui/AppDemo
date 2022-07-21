@@ -2,20 +2,18 @@ package lishui.module.media.ui
 
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import android.widget.VideoView
 import androidx.recyclerview.widget.GridLayoutManager
 import lishui.lib.router.core.Router
-import lishui.module.media.model.MediaDataModel
 import lishui.module.media.model.VideoDataModel
-import lishui.module.media.viewmodel.MediaViewModel
+import lishui.module.media.ui.util.MediaListUtil
 import lishui.service.core.router.RouterPath
 
 /**
  * @author lishui.lin
  * Created it on 2021/5/31
  */
-class MediaVideoFragment : MediaBrowseFragment() {
+class LocalVideoListFragment : LocalMediaListFragment() {
 
     private val videoView: VideoView by lazy {
         VideoView(requireContext())
@@ -23,11 +21,11 @@ class MediaVideoFragment : MediaBrowseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        backPressedCallback.isEnabled = true
+        //backPressedCallback.isEnabled = true
     }
 
     override fun loadData() {
-        mediaViewModel.loadMedia(MediaViewModel.VIDEOS_EXTERNAL)
+        mediaViewModel.loadLocalMedia(MediaListUtil.TYPE_VIDEOS_EXTERNAL)
     }
 
     override fun initViews(root: View) {
@@ -36,7 +34,7 @@ class MediaVideoFragment : MediaBrowseFragment() {
     }
 
     override fun onClickItem(v: View) {
-        val mediaDataModel = v.tag as MediaDataModel
+        val mediaDataModel = v.tag
         if (mediaDataModel is VideoDataModel) {
             /*val urlList = ArrayList<String>()
             mediaViewModel.mediaModelList.value?.onEach {
@@ -80,18 +78,10 @@ class MediaVideoFragment : MediaBrowseFragment() {
     }
 
     override fun onInternalTabSelected() {
-        mediaViewModel.loadMedia(MediaViewModel.VIDEOS_INTERNAL)
+        mediaViewModel.loadLocalMedia(MediaListUtil.TYPE_VIDEOS_INTERNAL)
     }
 
     override fun onExternalTabSelected() {
-        mediaViewModel.loadMedia(MediaViewModel.VIDEOS_EXTERNAL)
-    }
-
-    override fun onBackPressed() {
-        if (videoView.parent != null) {
-            (view as ViewGroup).removeView(videoView)
-        } else {
-            requireActivity().finish()
-        }
+        mediaViewModel.loadLocalMedia(MediaListUtil.TYPE_VIDEOS_EXTERNAL)
     }
 }

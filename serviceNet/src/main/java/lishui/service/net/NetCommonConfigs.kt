@@ -1,7 +1,5 @@
 package lishui.service.net
 
-import lishui.service.net.result.EmptyNetResult
-import lishui.service.net.result.NetExceptionResult
 import lishui.service.net.result.NetJsonObjectResult
 import lishui.service.net.result.NetResult
 

@@ -2,6 +2,7 @@
 package lishui.service.core
 
 import android.content.Context
+import android.lib.base.log.LogUtils
 
 /**
  *  author : linlishui
@@ -22,5 +23,6 @@ object AppDemo {
         if (!this::appContext.isInitialized)
             appContext = context.applicationContext
         isInit = true
+        LogUtils.setDefaultTag("AppDemo")
     }
 }

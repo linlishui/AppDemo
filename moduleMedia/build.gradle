@@ -3,6 +3,8 @@ apply from: "${rootDir}/config/kotlin_android.gradle"
 
 dependencies {
 
+    implementation project(path: ':UiKit')
+    implementation project(path: ':serviceNet')
     implementation project(path: ':serviceCore')
     implementation project(path: ':serviceImager')
 

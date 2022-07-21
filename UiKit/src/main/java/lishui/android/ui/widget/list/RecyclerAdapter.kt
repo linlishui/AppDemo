@@ -3,6 +3,7 @@ package lishui.android.ui.widget.list
 import android.view.ViewGroup
 import androidx.recyclerview.widget.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  *  author : linlishui
@@ -40,7 +41,7 @@ open class RecyclerAdapter @JvmOverloads constructor(
         if (newDataList != null) {
             sourceDataList.addAll(newDataList)
         }
-        mDiffer?.submitList(sourceDataList) ?: notifyDataSetChanged()
+        mDiffer?.submitList(newDataList) ?: notifyDataSetChanged()
     }
 
     fun getDataList(): List<RecyclerData> {

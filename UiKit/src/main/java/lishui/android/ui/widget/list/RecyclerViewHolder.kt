@@ -1,6 +1,7 @@
 package lishui.android.ui.widget.list
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
@@ -10,10 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
  *  time   : 2022/01/28
  *  desc   : `RecyclerView.ViewHolder`的基础实现类，定义通用的Holder行为
  */
-abstract class RecyclerViewHolder(
-    parent: ViewGroup,
-    @LayoutRes layoutId: Int
-) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(layoutId, parent, false)) {
+abstract class RecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    constructor(parent: ViewGroup, @LayoutRes layoutId: Int) : this(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
 
     var itemData: RecyclerData? = null
         private set
