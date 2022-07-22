@@ -15,6 +15,11 @@ class MediaListView(
     attrs: AttributeSet? = null
 ) : RecyclerView(context, attrs) {
 
+    init {
+        setHasFixedSize(true)
+        setItemViewCacheSize(4)
+    }
+
     private var mediaScrollListener: MediaListScrollListener? = null
 
 //    override fun addOnScrollListener(listener: OnScrollListener) {

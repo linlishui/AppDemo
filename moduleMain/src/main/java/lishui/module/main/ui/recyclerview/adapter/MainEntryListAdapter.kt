@@ -23,7 +23,7 @@ class MainEntryListAdapter : RecyclerAdapter(viewHolderFactory) {
     private val entryList = arrayListOf<RecyclerData>()
 
     init {
-        entryList.add(RecyclerData(ChatQuickEntry()))
+        //entryList.add(RecyclerData(ChatQuickEntry()))
         entryList.add(RecyclerData(MediaQuickEntry()))
         entryList.add(RecyclerData(GiteeQuickEntry()))
         //entryList.add(RecyclerData(ComposeQuickEntry()))

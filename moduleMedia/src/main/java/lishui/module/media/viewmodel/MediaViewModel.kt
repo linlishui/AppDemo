@@ -76,17 +76,17 @@ class MediaViewModel(private val app: Application) : AndroidViewModel(app) {
                     val task1 = async { NetClient.execute(ImageApiOpenTask(0)) }
                     val task2 = async { NetClient.execute(ImageApiOpenTask(1)) }
                     val task3 = async { NetClient.execute(ImageApiOpenTask(2)) }
-                    val task4 = async { NetClient.execute(ImageApiOpenTask(3)) }
-                    val task5 = async { NetClient.execute(ImageApiOpenTask(4)) }
-                    val task6 = async { NetClient.execute(ImageApiOpenTask(5)) }
+                   // val task4 = async { NetClient.execute(ImageApiOpenTask(3)) }
+                    //val task5 = async { NetClient.execute(ImageApiOpenTask(4)) }
+                    //val task6 = async { NetClient.execute(ImageApiOpenTask(5)) }
 
                     val netImageList = ArrayList<RecyclerData>()
                     netImageList.addAll(task1.await().imageList.map { RecyclerData(it, type) })
                     netImageList.addAll(task2.await().imageList.map { RecyclerData(it, type) })
                     netImageList.addAll(task3.await().imageList.map { RecyclerData(it, type) })
-                    netImageList.addAll(task4.await().imageList.map { RecyclerData(it, type) })
-                    netImageList.addAll(task5.await().imageList.map { RecyclerData(it, type) })
-                    netImageList.addAll(task6.await().imageList.map { RecyclerData(it, type) })
+                    //netImageList.addAll(task4.await().imageList.map { RecyclerData(it, type) })
+                    //netImageList.addAll(task5.await().imageList.map { RecyclerData(it, type) })
+                    //netImageList.addAll(task6.await().imageList.map { RecyclerData(it, type) })
 
                     originalMediaData[type] = netImageList
                     _mediaModelList.postValue(netImageList)
